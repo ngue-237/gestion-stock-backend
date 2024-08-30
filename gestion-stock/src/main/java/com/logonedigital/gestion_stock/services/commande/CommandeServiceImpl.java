@@ -3,10 +3,13 @@ package com.logonedigital.gestion_stock.services.commande;
 import com.logonedigital.gestion_stock.entities.Commande;
 import com.logonedigital.gestion_stock.exception.ResourceNotFoundException;
 import com.logonedigital.gestion_stock.repository.CommandeRepo;
+import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CommandeServiceImpl implements CommandeService{
 
     private final CommandeRepo commandeRepo;
@@ -18,6 +21,8 @@ public class CommandeServiceImpl implements CommandeService{
 
     @Override
     public Commande addCommande(Commande commande) {
+        commande.setDateCommande(new Date());
+        commande.setEtat(true);
         return this.commandeRepo.save(commande);
     }
 
@@ -36,6 +41,7 @@ public class CommandeServiceImpl implements CommandeService{
 
     @Override
     public Commande updateCommande(Long id) {
+
         return null;
     }
 

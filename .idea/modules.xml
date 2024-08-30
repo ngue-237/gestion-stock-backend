@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/gestion-stock.iml" filepath="$PROJECT_DIR$/.idea/gestion-stock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gestion-stock/gestion-stock.iml" filepath="$PROJECT_DIR$/gestion-stock/gestion-stock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/gestion-stock-backend.iml" filepath="$PROJECT_DIR$/.idea/gestion-stock-backend.iml" />
     </modules>
   </component>
 </project>

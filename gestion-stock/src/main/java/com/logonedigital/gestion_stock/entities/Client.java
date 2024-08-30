@@ -1,5 +1,7 @@
 package com.logonedigital.gestion_stock.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -19,27 +21,20 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idClient")
 public class Client {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @NotEmpty(message = "Le champ nom ne doit pas être vide")
-    @NotBlank(message = "il y a un problème avec le remplissage de ce champ")
-    @Length(min = 3, max = 30, message = "le nom doit contenir minimum 3 caractères et maximum 30 caractères")
+    private Long idClient;
     private String nom;
     private String prenom;
-    @NotEmpty(message = "Le champ email ne doit pas être vide")
-    @NotBlank(message = "il y a un problème avec le remplissage de ce champ")
-    @Email(message = "votre email n'est pas conforme")
     private String email;
-    @NotEmpty(message = "Le champ telephone ne doit pas être vide")
-    @NotBlank(message = "il y a un problème avec le remplissage de ce champ")
     private String telephone;
     private Date dateCreation;
     private Date dateModification;
     private Boolean etat;
     @OneToOne
     private Adresse adresse;
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     private List<Commande> commandes = new ArrayList<>();
 
 

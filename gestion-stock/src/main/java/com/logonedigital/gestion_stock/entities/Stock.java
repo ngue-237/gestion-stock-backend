@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Stock {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idStock;
     private Integer quantiteEnStock;
     @OneToOne
     private Produit produit;

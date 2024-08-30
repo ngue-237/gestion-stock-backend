@@ -16,7 +16,7 @@ import java.util.Date;
 @Entity
 public class Facture implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idFacture;
     private Double montant;
     private Date dateCreation;
     private Date dateModification;

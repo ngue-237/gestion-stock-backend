@@ -19,7 +19,7 @@ public class LigneCommande {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idLigneCommande;
     private Integer quantite;
     private Date dateCreation;
     private Date dateModification;
