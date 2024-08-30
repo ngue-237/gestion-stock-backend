@@ -34,8 +34,7 @@ public class Client {
     private Boolean etat;
     @OneToOne
     private Adresse adresse;
-    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-    private List<Commande> commandes = new ArrayList<>();
+
 
 
 
