@@ -71,11 +71,12 @@ public class CommandeServiceImpl implements CommandeService{
     }
 
     @Override
-    public Commande disableCommande(Long id) {
+    public Commande toggleCommandeStatus(Long id) {
         Optional<Commande> commande = this.commandeRepo.findById(id);
         if(commande.isEmpty())
             throw new ResourceNotFoundException("commande whith id:"+id+" not found");
         commande.get().setEtat(false);
+        commande.get().setEtat(!commande.get().getEtat());
 
         return this.commandeRepo.saveAndFlush(commande.get());
     }

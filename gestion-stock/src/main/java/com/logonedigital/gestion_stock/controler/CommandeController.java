@@ -56,8 +56,8 @@ public class CommandeController {
                 .body(this.commandeService.getAllCommande());
     }
 
-    @PutMapping(path = "/commandes/update_commandes/{id}")
-    public ResponseEntity<Commande> unShowCommande(@PathVariable Long id){
+    @PutMapping(path = "/commandes/change_commande_status/{id}")
+    public ResponseEntity<Commande> changeCommandeStatus(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(this.commandeService.disableCommande(id));
     }
