@@ -55,4 +55,10 @@ public class CommandeController {
                 .status(HttpStatus.OK)
                 .body(this.commandeService.getAllCommande());
     }
+
+    @PutMapping(path = "/commandes/update_commandes/{id}")
+    public ResponseEntity<Commande> unShowCommande(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.ACCEPTED)
+                .body(this.commandeService.disableCommande(id));
+    }
 }

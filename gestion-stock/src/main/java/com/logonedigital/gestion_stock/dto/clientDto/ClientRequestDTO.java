@@ -1,5 +1,7 @@
 package com.logonedigital.gestion_stock.dto.clientDto;
 
+
+import com.logonedigital.gestion_stock.model.AdresseModel;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -27,5 +29,7 @@ public class ClientRequestDTO {
     @NotBlank(message = "il y a un problème avec le remplissage de ce champ")
     @Length(min = 8, max = 9, message = "Min = 8 et Max = 9" )
     private String telephone;
+
+    private AdresseModel adresseM;
 
 }

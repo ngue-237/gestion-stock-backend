@@ -12,4 +12,5 @@ public interface CommandeService {
     Commande getCommande(Long id);
     Commande updateCommande(Long id);
     void deleteCommande(Long id);
+    Commande disableCommande(Long id);
 }

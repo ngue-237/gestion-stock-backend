@@ -43,10 +43,11 @@ public class CommandeServiceImpl implements CommandeService{
                 .toList();
     }
 */
-@Override
-public List<Commande> getAllCommande() {
-    return this.commandeRepo.findAll();
-}
+    @Override
+    public List<Commande> getAllCommande() {
+        return this.commandeRepo.fetchCommandes();
+    }
+
     @Override
     public Commande getCommande(Long id) {
         Optional<Commande> commande = this.commandeRepo.findById(id);
@@ -67,5 +68,15 @@ public List<Commande> getAllCommande() {
         if(commande.isEmpty())
             throw new ResourceNotFoundException("commande whith id:"+id+" not found");
         this.commandeRepo.delete(commande.get());
+    }
+
+    @Override
+    public Commande disableCommande(Long id) {
+        Optional<Commande> commande = this.commandeRepo.findById(id);
+        if(commande.isEmpty())
+            throw new ResourceNotFoundException("commande whith id:"+id+" not found");
+        commande.get().setEtat(false);
+
+        return this.commandeRepo.saveAndFlush(commande.get());
     }
 }

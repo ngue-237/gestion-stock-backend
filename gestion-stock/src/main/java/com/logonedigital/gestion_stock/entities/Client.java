@@ -3,18 +3,14 @@ package com.logonedigital.gestion_stock.entities;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Length;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 
 @Entity
 @Getter
@@ -29,10 +25,12 @@ public class Client {
     private String prenom;
     private String email;
     private String telephone;
+    @Temporal(TemporalType.DATE)
     private Date dateCreation;
+    @Temporal(TemporalType.DATE)
     private Date dateModification;
     private Boolean etat;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval = true)
     private Adresse adresse;
 
 
