@@ -59,6 +59,6 @@ public class CommandeController {
     @PutMapping(path = "/commandes/change_commande_status/{id}")
     public ResponseEntity<Commande> changeCommandeStatus(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.ACCEPTED)
-                .body(this.commandeService.disableCommande(id));
+                .body(this.commandeService.toggleCommandeStatus(id));
     }
 }

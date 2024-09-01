@@ -21,6 +21,6 @@ public class Facture implements Serializable {
     private Date dateCreation;
     private Date dateModification;
     private Boolean etat;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, mappedBy = "facture")
     private Commande commande;
 }

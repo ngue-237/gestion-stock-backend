@@ -30,6 +30,8 @@ public class Commande implements Serializable {
     private Boolean etat;
     @ManyToOne
     private Client client;
+    @OneToOne
+    private Facture facture;
 
 
 }
